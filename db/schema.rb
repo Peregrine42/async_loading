@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920211520) do
+ActiveRecord::Schema.define(version: 20140920215209) do
+
+  create_table "referendum_results", force: true do |t|
+    t.integer "votes_for"
+    t.integer "votes_against"
+    t.boolean "result"
+  end
 
   create_table "referendums", force: true do |t|
     t.integer "votes_for"
