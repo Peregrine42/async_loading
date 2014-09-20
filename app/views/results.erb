@@ -1,1 +1,6 @@
-No.
+<p><%= @ref.result ? 'Yes.' : 'No.' %></p>
+Votes:
+<ul>
+  <li>for: <%= @ref.votes_for %></li>
+  <li>against: <%= @ref.votes_against %></li>
+</ul>
