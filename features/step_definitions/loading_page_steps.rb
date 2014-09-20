@@ -7,5 +7,6 @@ When "I visit the loading page" do
 end
 
 Then "there is a result in the database" do
-  expect(ReferendumResult.all.count).to eq 1
+  sleep 5
+  expect(ReferendumResult.first.votes_for).to eq 5
 end
