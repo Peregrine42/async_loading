@@ -1,6 +1,6 @@
 class App
   get '/' do
-    'hello!'
+    erb :home
   end
 
 end
