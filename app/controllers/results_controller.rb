@@ -1,6 +1,7 @@
 class App
 
-  get '/results' do
+  get '/results/:id' do
+    @ref = Referendum.find(params[:id])
     erb :results
   end
 end
