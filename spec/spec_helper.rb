@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 require 'rspec'
 require 'rack/test'
+require 'sidekiq/testing'
 
 require_relative '../app'
 
@@ -18,3 +19,6 @@ end
 def app
   App
 end
+
+# have sidekiq work within the same thread for testing purposes
+Sidekiq::Testing.inline!

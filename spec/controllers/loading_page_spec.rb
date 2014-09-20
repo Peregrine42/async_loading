@@ -7,6 +7,7 @@ describe 'GET /loading/:id' do
   end
 
   it 'shows the loading page' do
+    allow(Worker).to receive(:perform_async).with(1)
     get '/loading/1'
     expect(last_response.body).to match 'Loading results, please wait'
   end

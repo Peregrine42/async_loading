@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara'
 require 'capybara/cucumber'
+require 'sidekiq/testing'
 require 'rspec'
 
 require_relative '../../app'
@@ -24,3 +25,6 @@ DatabaseCleaner.strategy = :truncation
 Before do
   DatabaseCleaner.clean
 end
+
+# have sidekiq work within the same thread for testing purposes
+Sidekiq::Testing.inline!
