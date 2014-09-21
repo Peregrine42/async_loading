@@ -1,7 +1,11 @@
 class App
 
   get '/results/:id' do
-    @ref = Referendum.find(params[:id])
-    erb :results
+    @ref = ReferendumResult.where(referendum_id: params[:id]).first
+    if @ref
+      erb :results
+    else
+      'no results yet'
+    end
   end
 end
