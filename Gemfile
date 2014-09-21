@@ -11,6 +11,7 @@ gem 'database_cleaner'
 gem 'sidekiq'
 
 group :development, :test do
+  gem 'byebug'
   gem 'rspec'
 	gem 'cucumber'
 	gem 'capybara'
