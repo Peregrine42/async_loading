@@ -1,11 +1,12 @@
 class App
 
-  get '/results/:id' do
-    @ref = ReferendumResult.where(referendum_id: params[:id]).first
-    if @ref
-      erb :results
-    else
-      'no results yet'
-    end
+  get '/loading/:id' do
+    Worker.perform_async(params[:id].to_i)
+    redirect "/results/#{params[:id]}"
   end
+
+  get '/results/:id' do
+    erb :loading
+  end
+
 end
