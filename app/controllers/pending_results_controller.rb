@@ -3,7 +3,7 @@ class App
   get '/pending_results/:id' do
     @ref = ReferendumResult.where(referendum_id: params[:id]).first
     if @ref
-      erb :results
+      'results ready'
     else
       'no results yet'
     end

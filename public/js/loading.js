@@ -5,8 +5,7 @@ var id = $('#target').data("id")
 var prod = function() {
   $.get("/pending_results/" + id, function(data) {
     if (data != "no results yet") {
-      $('#message').remove();
-      $('#target').append(data);
+      window.location = "../referendum_results/" + id;
     } else {
       setTimeout(prod, 1000);
     };
