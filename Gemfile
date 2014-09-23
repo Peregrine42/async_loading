@@ -15,4 +15,6 @@ group :development, :test do
   gem 'rspec'
 	gem 'cucumber'
 	gem 'capybara'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end

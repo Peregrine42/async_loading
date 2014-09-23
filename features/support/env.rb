@@ -4,6 +4,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'sidekiq/testing'
 require 'rspec'
+require 'capybara/poltergeist'
 
 require_relative '../../app'
 
@@ -27,4 +28,10 @@ Before do
 end
 
 # have sidekiq work within the same thread for testing purposes
-Sidekiq::Testing.inline!
+#Sidekiq::Testing.inline!
+
+Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, {debug: false})
+end
+
+Capybara.javascript_driver = :poltergeist
