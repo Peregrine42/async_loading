@@ -27,9 +27,6 @@ Before do
   DatabaseCleaner.clean
 end
 
-# have sidekiq work within the same thread for testing purposes
-#Sidekiq::Testing.inline!
-
 Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(app, {debug: false})
 end
